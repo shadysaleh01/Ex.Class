@@ -86,34 +86,34 @@
 
 
 
-$(".submit").on("click", function(event){
+  $(".submit").on("click", function (event) {
     event.preventDefault()
     var reservation = {
-        name: $("#reserve-name").val().trim(),
-        phoneNumber: $("#reserve-phone").val().trim(),
-        email: $("#reserve-email").val().trim(),
-        uniqueID: $("#reserve-unique-id").val().trim()
+      name: $("#reserve-name").val().trim(),
+      phoneNumber: $("#reserve-phone").val().trim(),
+      email: $("#reserve-email").val().trim(),
+      uniqueID: $("#reserve-unique-id").val().trim()
     }
 
 
 
-console.log(reservation)
+    console.log(reservation)
 
 
-$.post("/api/tables", reservation,
-    function(data){
-        if (data){
-            alert("You are booked")
-        } else{
-            alert("You are on the wait list")
+    $.post("/api/tables", reservation,
+      function (data) {
+        if (data) {
+          alert("You are booked")
+        } else {
+          alert("You are on the wait list")
         }
-    })
+      })
 
-$("#reserve-name").val("")
-$("#reserve-phone").val("")
-$("#reserve-email").val("")
-$("#reserve-unique-id").val("")
+    $("#reserve-name").val("")
+    $("#reserve-phone").val("")
+    $("#reserve-email").val("")
+    $("#reserve-unique-id").val("")
 
-})
+  })
 
 </script>

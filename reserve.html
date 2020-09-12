@@ -30,7 +30,7 @@
         </a>
         <a href="/">
           <button class="btn btn-lg btn-default">
-            <span class="fa fa-home"></span>
+            <span class="fa fa-home id=" home"></span>
           </button>
         </a>
       </div>
@@ -86,14 +86,14 @@
 
 
 
-$("#add-btn").on("cilck", function(event){
+  $("#add-btn").on("cilck", function (event) {
     event.preventDefault()
     var reservation = {
-        name: $("#reserve-name").val(),
+      name: $("#reserve-name").val(),
     }
 
     console.log(reservation.name)
-})
+  })
 
 
 

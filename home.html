@@ -39,6 +39,21 @@
   </div>
   <script>console.log("Hello")</script>
 
+
+  <script type="text/javascript">
+
+    $.post("/api/tables")
+      .then((data) => {
+        console.log("tables.html", data)
+      })
+
+    $.post("/api/reserve")
+      .then((data) => {
+        console.log("reserve.html", data)
+      })
+  </script>
+
+
 </body>
 
 </html>

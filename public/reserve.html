@@ -95,10 +95,10 @@
 
     // Here we grab the form elements
     var newReservation = {
+      id: $("#reserve-unique-id").val().trim(),
       name: $("#reserve-name").val().trim(),
       phoneNumber: $("#reserve-phone").val().trim(),
       email: $("#reserve-email").val().trim(),
-      id: $("#reserve-unique-id").val().trim()
     }
     console.log(newReservation)
 
@@ -123,8 +123,6 @@
         $("#reserve-email").val("")
         $("#reserve-unique-id").val("")
       })
-
-
 
   })
 

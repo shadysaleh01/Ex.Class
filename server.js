@@ -48,7 +48,7 @@ app.get("/reserve", (req, res) => {
 })
 
 
-//API GER Requests
+//API GET Requests
 //Below cases when a user visits a link
 app.get("/api/tables", (req, res) => {
    res.json(tableUsers);

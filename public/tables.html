@@ -41,12 +41,9 @@
           <div class="card-body">
             <h2><strong>Table #:</strong> <span id="table"></span></h2>
             <hr>
-            <div id="stats">
-              <h3>ID:<span id="id"></span></h3>
-              <h3>Name: <span id="name"></span></h3>
-              <h3>Email Address: <span id="email"></span></h3>
-              <h3>Phone Number: <span id="phone"></span></h3>
-            </div>
+            <ul id="tableList">
+
+            </ul>
           </div>
         </div>
 
@@ -58,12 +55,9 @@
           <div class="card-body">
             <h2><strong>Table #:</strong> <span id="table"></span></h2>
             <hr>
-            <div id="stats">
-              <h3>ID: <span id="id"></span></h3>
-              <h3>Name: <span id="name"></span></h3>
-              <h3>Email Address: <span id="email"></span></h3>
-              <h3>Phone Number: <span id="phone"></span></h3>
-            </div>
+            <ul id="waitingList">
+
+            </ul>
           </div>
         </div>
       </div>
@@ -83,14 +77,55 @@
 
   <script type="text/javascript">
 
-    $.get("/api/users", (data) => {
-      var tableId = 0
-      $("#table").text(tableId + 1)
-      $("#id").text(data.id)
-      $("#name").text(data.id)
-      $("#email").text(data.email)
-      $("#phone").text(data.phoneNumber)
-    })
+    function availableTable() {
+      $.get("/api/tables", (tableData) => {
+
+        for (let i = 0; i < tableData.length; i++) {
+
+          let custmerInfo = $("<li class='list-group-item mt-4'>")
+          custmerInfo.append(
+            $("<h3>").text("Table #"(i + 1)),
+            $("<hr>"),
+            $("<h3>").text(tableData[i].id),
+            $("<h3>").text(tableData[i].name),
+            $("<h3>").text(tableData[i].email),
+            $("<h3>").text(tableData[i].phoneNumber)
+          )
+          $("#tableList").append(custmerInfo)
+        }
+      })
+    }
+
+    function waitingList() {
+      $.get("/api/waitlist", (waitData) => {
+
+        for (let i = 0; i < waitData.length; i++) {
+
+          let custmerInfo = $("<li class='list-group-item mt-4'>")
+          custmerInfo.append(
+            $("<h3>").text("Table #"(i + 1)),
+            $("<hr>"),
+            $("<h3>").text(tableData[i].id),
+            $("<h3>").text(tableData[i].name),
+            $("<h3>").text(tableData[i].email),
+            $("<h3>").text(tableData[i].phoneNumber)
+          )
+          $("#waitingList").append(custmerInfo)
+        }
+      })
+    }
+
+    function clearTable() {
+      alert("Clearing...");
+
+      // Clear the tables on the server and then empty the elements on the client
+      $.ajax({ url: "/api/clear", method: "POST" }).then(function () {
+        $("#waitList").empty();
+        $("#tableList").empty();
+      });
+    }
+
+    $("#clear").on("click", clearTable);
 
   </script>
 

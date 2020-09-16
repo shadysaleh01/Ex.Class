@@ -70,6 +70,7 @@
   <script type="text/javascript">
 
     function availableTable() {
+
       $.get("/api/tables", (tableData) => {
 
         for (let i = 0; i < tableData.length; i++) {
@@ -78,10 +79,10 @@
           custmerInfo.append(
             $("<h3>").text("Table #"(i + 1)),
             $("<hr>"),
-            $("<h3>").text(tableData[i].id),
-            $("<h3>").text(tableData[i].name),
-            $("<h3>").text(tableData[i].email),
-            $("<h3>").text(tableData[i].phoneNumber)
+            $("<h3>").text("ID: " + tableData[i].id),
+            $("<h3>").text("Name: " + tableData[i].name),
+            $("<h3>").text("Email: " + tableData[i].email),
+            $("<h3>").text("Phone" + tableData[i].phoneNumber)
           )
           $("#tableList").append(custmerInfo)
         }
@@ -97,10 +98,10 @@
           custmerInfo.append(
             $("<h3>").text("Table #"(i + 1)),
             $("<hr>"),
-            $("<h3>").text(tableData[i].id),
-            $("<h3>").text(tableData[i].name),
-            $("<h3>").text(tableData[i].email),
-            $("<h3>").text(tableData[i].phoneNumber)
+            $("<h3>").text("ID: " + waitData[i].id),
+            $("<h3>").text("Name: " + waitData[i].name),
+            $("<h3>").text("Email: " + waitData[i].email),
+            $("<h3>").text("Phone: " + waitData[i].phoneNumber)
           )
           $("#waitingList").append(custmerInfo)
         }

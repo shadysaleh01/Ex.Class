@@ -12,23 +12,9 @@ app.use(express.json());
 
 
 
-const tableUsers = [
-   {
-      id: "",
-      name: "",
-      phoneNumber: "",
-      email: ""
-   }
-]
+const tableUsers = []
 
-const waitListUsers = [
-   {
-      id: "",
-      name: "",
-      phoneNumber: "",
-      email: ""
-   }
-]
+const waitListUsers = []
 
 
 // HTML GET Requests

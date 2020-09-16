@@ -60,7 +60,7 @@
                 <label for="reserve-unique-id">Unique ID</label>
                 <input type="text" class="form-control" id="reserve-unique-id">
               </div>
-              <button type="submit" class="btn btn-primary submit" id="att-btn">Submit</button>
+              <button type="submit" class="btn btn-primary submit" id="add-btn">Submit</button>
             </form>
           </div>
         </div>
@@ -86,7 +86,7 @@
 
 
 
-  $(".submit").on("click", function (event) {
+  $("#add-btn").on("click", function (event) {
     event.preventDefault()
     var reservation = {
       name: $("#reserve-name").val().trim(),

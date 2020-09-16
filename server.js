@@ -17,8 +17,7 @@ const tableUsers = [
       id: "",
       name: "",
       phoneNumber: "",
-      email: "",
-
+      email: ""
    }
 ]
 
@@ -27,8 +26,7 @@ const waitListUsers = [
       id: "",
       name: "",
       phoneNumber: "",
-      email: "",
-
+      email: ""
    }
 ]
 
@@ -95,4 +93,6 @@ app.post("/api/clear", (req, res) => {
 // });
 
 //Starts our server
-app.listen(PORT, () => { console.log("App listening on PORT " + PORT) })
+app.listen(PORT, () => {
+   console.log("App listening on PORT " + PORT)
+})

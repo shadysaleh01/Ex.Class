@@ -61,8 +61,8 @@
             <div id="stats">
               <h3>ID: <span id="id"></span></h3>
               <h3>Name: <span id="name"></span></h3>
-              <h3>Email: <span id="email"></span></h3>
-              <h3>Phone: <span id="phone"></span></h3>
+              <h3>Email Address: <span id="email"></span></h3>
+              <h3>Phone Number: <span id="phone"></span></h3>
             </div>
           </div>
         </div>
@@ -84,6 +84,8 @@
   <script type="text/javascript">
 
     $.get("/api/users", (data) => {
+      var tableId = 0
+      $("#table").text(tableId + 1)
       $("#id").text(data.id)
       $("#name").text(data.id)
       $("#email").text(data.email)

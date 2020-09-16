@@ -36,10 +36,17 @@
         <!-- Current Tables in Use -->
         <div class="card">
           <div class="card-header">
-            <h4>Current Reservations</h4>
+            <h3>Current Reservations</h3>
           </div>
           <div class="card-body">
-            <ul id="tableList" class="list-group"></ul>
+            <h2><strong>Table #:</strong> <span id="table"></span></h2>
+            <hr>
+            <div id="stats">
+              <h3>ID:<span id="id"></span></h3>
+              <h3>Name: <span id="name"></span></h3>
+              <h3>Email: <span id="email"></span></h3>
+              <h3>Phone: <span id="phone"></span></h3>
+            </div>
           </div>
         </div>
 
@@ -49,7 +56,14 @@
             <h4>Waiting List</h4>
           </div>
           <div class="card-body">
-            <ul id="waitList" class="list-group"></ul>
+            <h2><strong>Table #:</strong> <span id="table"></span></h2>
+            <hr>
+            <div id="stats">
+              <h3>ID: <span id="id"></span></h3>
+              <h3>Name: <span id="name"></span></h3>
+              <h3>Email: <span id="email"></span></h3>
+              <h3>Phone: <span id="phone"></span></h3>
+            </div>
           </div>
         </div>
       </div>
@@ -67,4 +81,15 @@
 
   </div>
 
+  <script type="text/javascript">
+
+    $.get("/api/users", (data) => {
+      $("#id").text(data, id)
+      $(id)
+    })
+
+  </script>
+
 </body>
+
+</html>

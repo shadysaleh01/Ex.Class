@@ -81,4 +81,15 @@
 
   </div>
 
+  <script type="text/javascript">
+
+    $.get("/api/users", (data) => {
+      $("#id").text(data, id)
+      $(id)
+    })
+
+  </script>
+
 </body>
+
+</html>

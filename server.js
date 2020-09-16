@@ -12,9 +12,8 @@ app.use(express.json());
 
 
 
-const users = [
+const tableUsers = [
    {
-      routeName: "",
       id: "",
       name: "",
       phoneNumber: "",
@@ -23,9 +22,8 @@ const users = [
    }
 ]
 
-const waitListUser = [
+const waitListUsers = [
    {
-      routeName: "",
       id: "",
       name: "",
       phoneNumber: "",
@@ -53,10 +51,10 @@ app.get("/reserve", (req, res) => {
 //API GER Requests
 //Below cases when a user visits a link
 app.get("/api/tables", (req, res) => {
-   res.json(users);
+   res.json(tableUsers);
 });
 app.get("/api/waitlist", (req, res) => {
-   res.json(waitListUser);
+   res.json(waitListUsers);
 });
 
 
@@ -64,14 +62,14 @@ app.get("/api/waitlist", (req, res) => {
 // Below code handles when a user submits a form, this data is then sent to the server..
 app.post("/api/tables", (req, res) => {
 
-   //Our "server" will respond to requests and let users know if they have a table or not.
+   //Our "server" will respond to requests and let User know if they have a table or not.
    // It will do this by sending out the value "true" have a table
-   if (users.length < 5) {
-      users.push(req.body);
+   if (tableUsers.length < 5) {
+      tableUsers.push(req.body);
       res.json(true);
    }
    else {
-      waitListUser.push(req.body);
+      waitListUsers.push(req.body);
       res.json(false);
    }
 });
@@ -79,7 +77,7 @@ app.post("/api/tables", (req, res) => {
 //this below code clear out the table while working with the functionality.
 app.post("/api/clear", (req, res) => {
    // Empty out the arrays of data
-   users.length = 0;
+   tableUsers.length = 0;
    waitListUsers.length = 0;
 
    res.json({ ok: true });
